@@ -12,6 +12,8 @@ class LetterSerializer < ActiveModel::Serializer
     html.css('script').remove
     text = html.at('body').inner_text
     text.delete!("\n")
+
+    text.count(@instant_options[:queryy])
   else
       "pass a  single letter"
   end
