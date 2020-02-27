@@ -17,10 +17,11 @@ class LetterSerializer < ActiveModel::Serializer
       text.count(@instant_options[:queryy])
     else
       "pass a  single letter"
+    end
   end
 
   def query
-    if (@instant_options[:query]).length==1
+    if (@instant_options[:queryy]).length==1
       given_letter = @instant_options[:queryy]
       page = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{given_letter}"))
       page.css('script').remove
@@ -28,4 +29,5 @@ class LetterSerializer < ActiveModel::Serializer
     else
       "No Data here"
     end
+  end
 end
